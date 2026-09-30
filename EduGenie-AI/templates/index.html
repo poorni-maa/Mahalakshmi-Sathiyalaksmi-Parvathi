@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="EduGenie - Google Gemini Powered Learning Assistant"
+    >
+
+    <title>
+        EduGenie - AI Learning Assistant
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         MAIN CONTAINER
+    ====================================================== -->
+
+    <main class="container">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="hero">
+
+            <div class="logo">
+                🧠
+            </div>
+
+            <h1>
+                Welcome to EduGenie
+            </h1>
+
+            <p>
+                Your Personal AI Learning Assistant
+            </p>
+
+            <div class="hero-badge">
+                ✨ Powered by Google Gemini
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             ASK QUESTION
+        ================================================== -->
+
+        <section class="card">
+
+            <div class="card-icon">
+                💬
+            </div>
+
+            <div class="card-header">
+
+                <h2>
+                    Ask EduGenie a Question
+                </h2>
+
+                <p>
+                    Ask any educational question and get
+                    a clear AI-powered answer.
+                </p>
+
+            </div>
+
+
+            <form
+                id="questionForm"
+                class="form"
+            >
+
+                <label for="question">
+                    Your Question
+                </label>
+
+                <div class="input-group">
+
+                    <input
+                        id="question"
+                        name="question"
+                        type="text"
+                        placeholder="Example: Why is the sky blue?"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Get Answer
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div
+                id="questionResult"
+                class="result"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EXPLAIN TOPIC
+        ================================================== -->
+
+        <section class="card">
+
+            <div class="card-icon">
+                📚
+            </div>
+
+            <div class="card-header">
+
+                <h2>
+                    Need an Explanation?
+                </h2>
+
+                <p>
+                    Enter a topic and EduGenie will explain it
+                    in simple student-friendly language.
+                </p>
+
+            </div>
+
+
+            <form
+                id="explainForm"
+                class="form"
+            >
+
+                <label for="topic">
+                    Topic
+                </label>
+
+                <div class="input-group">
+
+                    <input
+                        id="topic"
+                        name="topic"
+                        type="text"
+                        placeholder="Example: Photosynthesis"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Explain
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div
+                id="explainResult"
+                class="result"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SUMMARIZER
+        ================================================== -->
+
+        <section class="card">
+
+            <div class="card-icon">
+                📝
+            </div>
+
+            <div class="card-header">
+
+                <h2>
+                    Summarize a Paragraph
+                </h2>
+
+                <p>
+                    Paste your study material and let EduGenie
+                    create a simple summary.
+                </p>
+
+            </div>
+
+
+            <form
+                id="summaryForm"
+                class="form"
+            >
+
+                <label for="summaryText">
+                    Study Material
+                </label>
+
+                <textarea
+                    id="summaryText"
+                    name="text"
+                    placeholder="Paste your paragraph, notes, or study material here..."
+                    required
+                ></textarea>
+
+
+                <button
+                    type="submit"
+                    class="primary-button full-button"
+                >
+                    Summarize
+                </button>
+
+            </form>
+
+
+            <div
+                id="summaryResult"
+                class="result"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUIZ
+        ================================================== -->
+
+        <section class="card">
+
+            <div class="card-icon">
+                🧪
+            </div>
+
+            <div class="card-header">
+
+                <h2>
+                    Generate a Quiz
+                </h2>
+
+                <p>
+                    Generate five multiple-choice questions
+                    to test your knowledge.
+                </p>
+
+            </div>
+
+
+            <form
+                id="quizForm"
+                class="form"
+            >
+
+                <label for="quizTopic">
+                    Quiz Topic
+                </label>
+
+                <div class="input-group">
+
+                    <input
+                        id="quizTopic"
+                        name="topic"
+                        type="text"
+                        placeholder="Example: Solar System"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Generate Quiz
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div
+                id="quizResult"
+                class="result"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LEARNING RECOMMENDATIONS
+        ================================================== -->
+
+        <section class="card">
+
+            <div class="card-icon">
+                🎯
+            </div>
+
+            <div class="card-header">
+
+                <h2>
+                    Get Learning Recommendations
+                </h2>
+
+                <p>
+                    Get a practical learning path for any topic.
+                </p>
+
+            </div>
+
+
+            <form
+                id="recommendationForm"
+                class="form"
+            >
+
+                <label for="recommendationTopic">
+                    Topic
+                </label>
+
+                <div class="input-group">
+
+                    <input
+                        id="recommendationTopic"
+                        name="topic"
+                        type="text"
+                        placeholder="Example: Machine Learning"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Get Recommendations
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <div
+                id="recommendationResult"
+                class="result"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer>
+
+            <div class="footer-logo">
+                🧠 EduGenie
+            </div>
+
+            <p>
+                Google Gemini Powered Learning Assistant
+            </p>
+
+            <p class="footer-small">
+                Learn smarter. Understand faster.
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script
+        src="{{ url_for('static', filename='app.js') }}"
+    ></script>
+
+</body>
+
+</html>
